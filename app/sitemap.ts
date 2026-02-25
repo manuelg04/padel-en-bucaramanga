@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...clubs.map((c) => c.lastUpdated),
     ...guides.map((g) => g.lastModified ?? g.publishedAt)
   ];
-  const latestDate = allDates.sort().at(-1) ?? "2026-02-25";
+  const latestDate = allDates.sort().at(-1) ?? new Date().toISOString().split("T")[0];
   const staticLastModified = new Date(latestDate);
 
   const staticRoutes: MetadataRoute.Sitemap = [
