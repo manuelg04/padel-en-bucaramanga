@@ -1,7 +1,17 @@
 import { cache } from "react";
-import { readdir, readFile } from "node:fs/promises";
-import path from "node:path";
 import { clubSchema, guideSchema, type Club, type Guide } from "@/lib/schemas";
+import caracoliSportClub from "@/data/clubs/caracoli-sport-club.json";
+import cuatroPalasBga from "@/data/clubs/cuatro-palas-bga.json";
+import padelBucaramangaAnilloVial from "@/data/clubs/padel-bucaramanga-anillo-vial.json";
+import padelClubPc from "@/data/clubs/padel-club-pc.json";
+import padelCountryClubRuitoque from "@/data/clubs/padel-country-club-ruitoque.json";
+import royalPadelCabecera from "@/data/clubs/royal-padel-cabecera.json";
+import smashClubFloridablanca from "@/data/clubs/smash-club-floridablanca.json";
+import categoriasGuide from "@/data/guides/categorias-de-padel-7ma-6ta-5ta.json";
+import clasesGuide from "@/data/guides/clases-de-padel-en-bucaramanga.json";
+import cuantoCuestaGuide from "@/data/guides/cuanto-cuesta-jugar-padel-en-bucaramanga.json";
+import dondeJugarGuide from "@/data/guides/donde-jugar-padel-en-bucaramanga.json";
+import reglasBasicasGuide from "@/data/guides/reglas-basicas-del-padel.json";
 
 type ClubFilters = {
   city?: string;
@@ -9,6 +19,8 @@ type ClubFilters = {
 };
 
 async function loadJsonFilesFromDir<T>(dir: string, parser: (input: unknown) => T): Promise<T[]> {
+  const { readdir, readFile } = await import("node:fs/promises");
+  const path = await import("node:path");
   const fileNames = (await readdir(dir)).filter((name) => name.endsWith(".json"));
 
   const payloads = await Promise.all(
@@ -23,14 +35,44 @@ async function loadJsonFilesFromDir<T>(dir: string, parser: (input: unknown) => 
   return payloads;
 }
 
+function sortClubs(clubs: Club[]): Club[] {
+  return clubs.sort((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name));
+}
+
+function sortGuides(guides: Guide[]): Guide[] {
+  return guides.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+}
+
+const bundledClubs = sortClubs(
+  [
+    caracoliSportClub,
+    cuatroPalasBga,
+    padelBucaramangaAnilloVial,
+    padelClubPc,
+    padelCountryClubRuitoque,
+    royalPadelCabecera,
+    smashClubFloridablanca
+  ].map((input) => clubSchema.parse(input))
+);
+
+const bundledGuides = sortGuides(
+  [
+    categoriasGuide,
+    clasesGuide,
+    cuantoCuestaGuide,
+    dondeJugarGuide,
+    reglasBasicasGuide
+  ].map((input) => guideSchema.parse(input))
+);
+
 export async function loadClubsFromDir(dir: string): Promise<Club[]> {
   const clubs = await loadJsonFilesFromDir(dir, (input) => clubSchema.parse(input));
-  return clubs.sort((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name));
+  return sortClubs(clubs);
 }
 
 export async function loadGuidesFromDir(dir: string): Promise<Guide[]> {
   const guides = await loadJsonFilesFromDir(dir, (input) => guideSchema.parse(input));
-  return guides.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  return sortGuides(guides);
 }
 
 export function filterClubs(clubs: Club[], filters: ClubFilters): Club[] {
@@ -44,12 +86,9 @@ export function filterClubs(clubs: Club[], filters: ClubFilters): Club[] {
   });
 }
 
-const clubsDir = path.join(process.cwd(), "data", "clubs");
-const guidesDir = path.join(process.cwd(), "data", "guides");
+export const getAllClubs = cache(async (): Promise<Club[]> => bundledClubs);
 
-export const getAllClubs = cache(async (): Promise<Club[]> => loadClubsFromDir(clubsDir));
-
-export const getAllGuides = cache(async (): Promise<Guide[]> => loadGuidesFromDir(guidesDir));
+export const getAllGuides = cache(async (): Promise<Guide[]> => bundledGuides);
 
 export const getClubBySlug = cache(async (slug: string): Promise<Club | undefined> => {
   const clubs = await getAllClubs();
