@@ -54,6 +54,21 @@ function buildBreadcrumbJsonLd(slug: string, name: string): Record<string, unkno
   };
 }
 
+function buildFaqPageJsonLd(faq: Array<{ question: string; answer: string }>): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  };
+}
+
 function buildSportsLocationJsonLd(slug: string, club: Awaited<ReturnType<typeof getClubBySlug>>): Record<string, unknown> {
   if (!club) {
     return {};
@@ -113,6 +128,7 @@ export default async function ClubDetailPage({ params }: ClubDetailPageProps): P
     <>
       <JsonLd data={buildBreadcrumbJsonLd(club.slug, club.name)} />
       <JsonLd data={buildSportsLocationJsonLd(club.slug, club)} />
+      <JsonLd data={buildFaqPageJsonLd(faq)} />
 
       <Breadcrumbs
         items={[
