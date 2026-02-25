@@ -1,5 +1,8 @@
 .next
+.open-next
+.wrangler
 node_modules
 coverage
 .DS_Store
 .env*
+.dev.vars

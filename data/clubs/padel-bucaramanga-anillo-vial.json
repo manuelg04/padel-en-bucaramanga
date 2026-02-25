@@ -7,8 +7,12 @@
   "tags": ["anillo-vial", "easycancha", "horario-amplio"],
   "instagramHandle": "padel_bucaramanga",
   "instagramUrl": "https://www.instagram.com/padel_bucaramanga/",
-  "instagramPostUrls": [],
-  "whatsapp": "https://wa.me/573106062213",
+  "instagramPostUrls": [
+    "https://www.instagram.com/p/DVJJaKODfCU/?img_index=1",
+    "https://www.instagram.com/p/DU8fIWKEd5z/",
+    "https://www.instagram.com/p/DUqfHikEXVD/"
+  ],
+  "whatsapp": "https://api.whatsapp.com/send?phone=573106062213&text=%C2%A1Hola%20Somos%20Padel%20Bucaramanga!%20%C2%BFC%C3%B3mo%20puedo%20ayudarte%3F",
   "website": "https://www.easycancha.com/",
   "googleMapsUrl": null,
   "bookingNotes": "Referencia pública en EasyCancha: lunes a domingo de 6:00 a.m. a 11:00 p.m.",
