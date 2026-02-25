@@ -25,6 +25,7 @@ export const guideSchema = z.object({
   h1: z.string().min(1).optional(),
   description: z.string().min(1),
   publishedAt: z.string().regex(dateRegex),
+  lastModified: z.string().regex(dateRegex).optional(),
   content: z.string().min(1),
   relatedClubSlugs: z.array(z.string()).default([])
 });

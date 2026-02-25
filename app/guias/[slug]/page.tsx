@@ -158,16 +158,19 @@ function buildArticleJsonLd(slug: string, guide: Awaited<ReturnType<typeof getGu
     headline: guide.title,
     description: guide.description,
     datePublished: guide.publishedAt,
-    dateModified: guide.publishedAt,
+    dateModified: guide.lastModified ?? guide.publishedAt,
     inLanguage: "es-CO",
+    image: absoluteUrl("/opengraph-image.png"),
     mainEntityOfPage: absoluteUrl(`/guias/${slug}`),
     author: {
       "@type": "Organization",
-      name: "Padel Bucaramanga"
+      name: "Padel Bucaramanga",
+      url: absoluteUrl("/")
     },
     publisher: {
       "@type": "Organization",
-      name: "Padel Bucaramanga"
+      name: "Padel Bucaramanga",
+      url: absoluteUrl("/")
     }
   };
 }
