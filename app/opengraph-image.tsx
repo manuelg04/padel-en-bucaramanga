@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
 export const alt = "Padel Bucaramanga – Directorio y Guías";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -61,6 +60,8 @@ export default function OgImage(): ImageResponse {
 
         <div
           style={{
+            display: "flex",
+            flexWrap: "wrap",
             color: "white",
             fontSize: "72px",
             fontWeight: 900,
@@ -70,7 +71,7 @@ export default function OgImage(): ImageResponse {
             maxWidth: "900px"
           }}
         >
-          Juega Padel en{" "}
+          <span>Juega Padel en&nbsp;</span>
           <span style={{ color: "#f97316" }}>Bucaramanga</span>
         </div>
 
