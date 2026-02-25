@@ -187,7 +187,9 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
   return buildMetadata({
     title: guide.title,
     description: guide.description,
-    path: `/guias/${guide.slug}`
+    path: `/guias/${guide.slug}`,
+    ogType: "article",
+    publishedTime: guide.publishedAt
   });
 }
 
