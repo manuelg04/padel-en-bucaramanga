@@ -2,7 +2,10 @@ import Link from "next/link";
 import { mainNav } from "@/lib/site";
 
 export function SiteFooter(): React.JSX.Element {
-  const whatsappUrl = "https://wa.me/573166229191";
+  const whatsappPrefilledMessage =
+    "Hola Manuel, vi la plataforma de Padel Bucaramanga y me gustaría hablar contigo sobre un proyecto de desarrollo de software.";
+  const whatsappUrl = `https://wa.me/573166229191?text=${encodeURIComponent(whatsappPrefilledMessage)}`;
+  const linkedInUrl = "https://www.linkedin.com/in/manuel-gonzalez-42481b134/";
 
   return (
     <footer className="mt-16 border-t border-border/70">
@@ -45,6 +48,18 @@ export function SiteFooter(): React.JSX.Element {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="/acerca-de"
+                className="w-fit text-sm text-slate-300 transition-colors hover:text-[hsl(var(--accent))]"
+              >
+                Acerca de
+              </Link>
+              <Link
+                href="/privacidad"
+                className="w-fit text-sm text-slate-300 transition-colors hover:text-[hsl(var(--accent))]"
+              >
+                Privacidad
+              </Link>
             </nav>
           </div>
 
@@ -77,6 +92,42 @@ export function SiteFooter(): React.JSX.Element {
         <div className="mt-10 border-t border-slate-900 pt-5">
           <p className="text-center text-xs text-slate-500">
             © 2026 Padel Bucaramanga. Todos los derechos reservados.
+          </p>
+          <p className="mt-2 text-center text-xs text-slate-500">
+            Diseñado y desarrollado en Colombia por{" "}
+            <a
+              href={linkedInUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="font-medium transition-colors hover:text-[hsl(var(--accent))] hover:underline focus-visible:text-white"
+            >
+              Manuel Gonzalez - Ingeniero de Software Senior
+            </a>
+            .
+            <span className="ml-2 inline-flex items-center gap-2 align-middle">
+              <a
+                href={linkedInUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="LinkedIn de Manuel Gonzalez"
+                className="text-slate-500 transition-colors hover:text-[hsl(var(--accent))] focus-visible:text-white"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.63-1.86 3.35-1.86 3.58 0 4.24 2.35 4.24 5.4v6.35ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45Z" />
+                </svg>
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="WhatsApp de Manuel Gonzalez"
+                className="text-slate-500 transition-colors hover:text-[hsl(var(--accent))] focus-visible:text-white"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
+                  <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.46 0 .08 5.38.08 12c0 2.11.55 4.17 1.6 5.99L0 24l6.17-1.62A11.9 11.9 0 0 0 12.08 24h.01c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.57-8.52ZM12.09 21.9h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.66.96.98-3.57-.23-.37a9.8 9.8 0 0 1-1.52-5.25c0-5.43 4.41-9.84 9.84-9.84 2.63 0 5.1 1.02 6.96 2.88a9.78 9.78 0 0 1 2.88 6.96c0 5.43-4.41 9.84-9.84 9.84Zm5.4-7.36c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.68-2.1-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.14 3.27 5.2 4.58.72.31 1.29.49 1.73.63.73.23 1.4.2 1.93.12.59-.09 1.77-.73 2.02-1.44.25-.71.25-1.33.18-1.45-.08-.12-.28-.2-.58-.35Z" />
+                </svg>
+              </a>
+            </span>
           </p>
         </div>
       </div>
