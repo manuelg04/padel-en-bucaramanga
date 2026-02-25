@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --card: 215 28% 17%;
+  --card-foreground: 210 40% 98%;
+  --primary: 83 78% 56%;
+  --primary-foreground: 222 47% 8%;
+  --secondary: 215 28% 22%;
+  --secondary-foreground: 210 20% 75%;
+  --muted: 215 28% 22%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 83 78% 56%;
+  --accent-foreground: 222 47% 8%;
+  --border: 215 25% 27%;
+  --input: 215 25% 27%;
+  --ring: 83 78% 56%;
+  --radius: 0.7rem;
+  --hero-bg: 222 47% 7%;
+  --gold-muted: 215 15% 55%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  min-height: 100vh;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+main h1,
+main h2,
+main h3 {
+  letter-spacing: -0.02em;
+}
+
+.prose h2 {
+  @apply mt-8 text-2xl font-semibold;
+}
+
+.prose p {
+  @apply mt-4 leading-7;
+  color: hsl(var(--secondary-foreground));
+  font-weight: 300;
+}
+
+.prose ul {
+  @apply mt-4 list-disc space-y-2 pl-6;
+}
+
+.prose li {
+  color: hsl(var(--secondary-foreground));
+  font-weight: 300;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badge-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes court-pulse {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes hero-line-draw {
+  from {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.animate-hero-fade-up {
+  opacity: 0;
+  animation: hero-fade-up 0.7s ease-out forwards;
+}
+
+.animate-badge-pop {
+  opacity: 0;
+  animation: badge-pop 0.5s ease-out forwards;
+}
+
+.animate-court-pulse {
+  animation: court-pulse 4s ease-in-out infinite;
+}
+
+.animate-hero-line-draw {
+  animation: hero-line-draw 2.2s ease-out forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
+
+.card-lift {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px -8px rgba(163, 230, 53, 0.12), 0 4px 14px -4px rgba(0, 0, 0, 0.4);
+}
+
+.guide-card-inner {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.guide-card-inner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 3px;
+  background: hsl(var(--accent));
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s ease;
+}
+.guide-card-inner:hover::after {
+  transform: scaleY(1);
+}
+
+.tag-indoor {
+  background-color: hsl(174 55% 32% / 0.2);
+  color: hsl(174 70% 60%);
+  border-color: hsl(174 55% 40% / 0.4);
+}
+.tag-outdoor {
+  background-color: hsl(83 60% 35% / 0.2);
+  color: hsl(83 70% 60%);
+  border-color: hsl(83 60% 45% / 0.4);
+}
+.tag-escuela,
+.tag-clases,
+.tag-academia {
+  background-color: hsl(25 88% 50% / 0.15);
+  color: hsl(25 90% 65%);
+  border-color: hsl(25 88% 55% / 0.4);
+}
+.tag-torneos,
+.tag-competencia {
+  background-color: hsl(350 80% 50% / 0.15);
+  color: hsl(350 80% 68%);
+  border-color: hsl(350 80% 55% / 0.4);
+}
+.tag-familias,
+.tag-kids {
+  background-color: hsl(210 70% 50% / 0.15);
+  color: hsl(210 75% 68%);
+  border-color: hsl(210 70% 55% / 0.4);
+}
+.tag-mixto {
+  background-color: hsl(270 40% 50% / 0.15);
+  color: hsl(270 50% 72%);
+  border-color: hsl(270 40% 55% / 0.4);
+}
+.tag-reserva-online {
+  background-color: hsl(174 55% 32% / 0.2);
+  color: hsl(174 70% 60%);
+  border-color: hsl(174 55% 40% / 0.4);
+}
+
+.instagram-embed-card .instagram-media {
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.instagram-embed-card .instagram-media iframe {
+  border-radius: 0.75rem !important;
+  background: #0f172a !important;
+}
+
+.instagram-embed-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.45) rgba(30, 41, 59, 0.4);
+}

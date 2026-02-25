@@ -1,0 +1,20 @@
+{
+  "slug": "cuatro-palas-bga",
+  "name": "4 Palas",
+  "city": "Bucaramanga",
+  "zone": "Bucaramanga",
+  "address": "Carrera 18 #51 - 125, Bucaramanga",
+  "tags": ["bucaramanga", "whatsapp", "easycancha"],
+  "instagramHandle": "4palasbga",
+  "instagramUrl": "https://www.instagram.com/4palasbga/",
+  "instagramPostUrls": [
+    "https://www.instagram.com/p/DUTapOYEfsB/",
+    "https://www.instagram.com/p/DUJVg1_kYis/",
+    "https://www.instagram.com/p/DURmk1eke1L/?img_index=1"
+  ],
+  "whatsapp": "https://api.whatsapp.com/send/?phone=573102470310&text&type=phone_number&app_absent=0",
+  "website": "https://www.easycancha.com/",
+  "googleMapsUrl": null,
+  "bookingNotes": "Reservas por WhatsApp (+57 310 247 0310) o por app de reservas según publicaciones.",
+  "lastUpdated": "2026-02-25"
+}

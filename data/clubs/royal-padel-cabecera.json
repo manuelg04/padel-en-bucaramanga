@@ -1,0 +1,21 @@
+{
+  "slug": "royal-padel-cabecera",
+  "name": "Royal Pádel",
+  "city": "Bucaramanga",
+  "zone": "Cabecera",
+  "address": "Cra 35A #48-30, Cabecera, Piso 5",
+  "tags": ["cabecera", "clases", "easycancha"],
+  "instagramHandle": "royalpadel",
+  "instagramUrl": "https://www.instagram.com/royalpadel/",
+  "instagramPostUrls": [
+    "https://www.instagram.com/p/DS3d-6iD-Ht/",
+    "https://www.instagram.com/p/DVKCpp7AJq1/?img_index=1",
+    "https://www.instagram.com/p/DVG6F2RAIRc/",
+    "https://www.instagram.com/p/DVCZndwABvH/"
+  ],
+  "whatsapp": "https://api.whatsapp.com/send/?phone=573181358024&text&type=phone_number&app_absent=0&utm_source=ig",
+  "website": "https://www.easycancha.com/",
+  "googleMapsUrl": null,
+  "bookingNotes": "Reservas por WhatsApp o EasyCancha. Dirección pública: Cra 35A #48-30, Cabecera, Piso 5.",
+  "lastUpdated": "2026-02-25"
+}

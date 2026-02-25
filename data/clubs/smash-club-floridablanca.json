@@ -1,0 +1,20 @@
+{
+  "slug": "smash-club-floridablanca",
+  "name": "Smash Club",
+  "city": "Floridablanca",
+  "zone": "Floridablanca",
+  "address": "Floridablanca (zona referencial según perfil público)",
+  "tags": ["floridablanca", "easycancha", "instagram"],
+  "instagramHandle": "smashclub____",
+  "instagramUrl": "https://www.instagram.com/smashclub____/",
+  "instagramPostUrls": [
+    "https://www.instagram.com/p/DU9PzksEWv7/?img_index=1",
+    "https://www.instagram.com/p/DRvJUJrkvkW/",
+    "https://www.instagram.com/p/DU3ufMUEQV4/?img_index=1"
+  ],
+  "whatsapp": "https://api.whatsapp.com/send?phone=573171490138",
+  "website": "https://www.easycancha.com/",
+  "googleMapsUrl": null,
+  "bookingNotes": "El perfil público indica reservas por EasyCancha.",
+  "lastUpdated": "2026-02-25"
+}
