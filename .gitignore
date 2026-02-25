@@ -6,3 +6,14 @@ coverage
 .DS_Store
 .env*
 .dev.vars
+
+# Logs
+*.log
+firebase-debug.log
+
+# Browser automation artifacts
+console-*.log
+.playwright-mcp/
+
+# Source assets already incorporated
+favicon-padelbga.png
