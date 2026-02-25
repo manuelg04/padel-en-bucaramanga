@@ -2,7 +2,9 @@ export const siteConfig = {
   name: "Padel Bucaramanga",
   description:
     "Directorio y guías para jugar padel y pádel en Bucaramanga y su área metropolitana.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://padelenbucaramanga.com/"
 };
 
 export const mainNav = [

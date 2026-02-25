@@ -7,6 +7,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm run dev          # Start development server
 npm run build        # Production build
+npm run build:cf     # Build for Cloudflare Workers
+npm run deploy       # Deploy to Cloudflare Workers
+npm run preview      # Local preview of CF Worker build
 npm run lint         # Run ESLint
 npm test             # Run Vitest once
 npm run test:watch   # Run Vitest in watch mode
@@ -49,3 +52,17 @@ Tailwind CSS with shadcn/ui components. Dark mode via CSS custom properties (HSL
 ### Tests
 
 Vitest with Node environment. Test files in `tests/**/*.test.ts`. Coverage via V8.
+
+## Deployment
+
+This site runs on **Cloudflare Workers** via `@opennextjs/cloudflare`. Config lives in `open-next.config.ts` and `wrangler.jsonc` (worker name: `padel-en-bucaramanga`).
+
+- Build for CF: `npm run build:cf` → outputs to `.open-next/`
+- Deploy: `npm run deploy`
+- Local preview: `npm run preview`
+
+Set `NEXT_PUBLIC_SITE_URL` to the production URL; defaults to the workers.dev subdomain.
+
+## Gotchas
+
+- **Data files are bundled, not read at runtime.** Cloudflare Workers have no filesystem access, so all JSON in `/data/` must be imported statically (not via `fs`). If you add new data files, ensure they are imported in `lib/data.ts` rather than loaded with `fs.readFileSync`.
