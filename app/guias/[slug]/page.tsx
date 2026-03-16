@@ -1,7 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import React from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
@@ -44,11 +47,46 @@ const guideMarkdownComponents: Components = {
       {children}
     </h3>
   ),
-  p: ({ children }) => <p className="mb-6 leading-relaxed text-secondary-foreground">{children}</p>,
+  p: ({ children }) => {
+    const childNodes = React.Children.toArray(children);
+    if (childNodes.length === 1 && React.isValidElement(childNodes[0])) {
+      return <>{children}</>;
+    }
+    return <p className="mb-6 leading-relaxed text-secondary-foreground">{children}</p>;
+  },
   strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
   ul: ({ children }) => <ul className="mb-6 list-disc space-y-3 pl-6 leading-relaxed">{children}</ul>,
   ol: ({ children }) => <ol className="mb-6 list-decimal space-y-3 pl-6 leading-relaxed">{children}</ol>,
-  li: ({ children }) => <li className="text-secondary-foreground">{children}</li>
+  li: ({ children }) => <li className="text-secondary-foreground">{children}</li>,
+  blockquote: ({ children }) => (
+    <blockquote className="mb-8 rounded-2xl border-l-4 border-primary/70 bg-primary/10 px-5 py-4 text-base text-foreground/90">
+      {children}
+    </blockquote>
+  ),
+  img: ({ src, alt }) =>
+    typeof src === "string" ? (
+      <figure className="mb-8 overflow-hidden rounded-2xl border border-border/70 bg-secondary/20">
+        <Image
+          src={src}
+          alt={alt ?? ""}
+          width={1200}
+          height={900}
+          unoptimized
+          className="h-auto w-full object-cover"
+        />
+        {alt ? <figcaption className="px-4 py-3 text-sm text-muted-foreground">{alt}</figcaption> : null}
+      </figure>
+    ) : null,
+  table: ({ children }) => (
+    <div className="mb-8 overflow-x-auto rounded-2xl border border-border/70">
+      <table className="min-w-full border-collapse text-left text-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => <thead className="bg-secondary/70 text-foreground">{children}</thead>,
+  tbody: ({ children }) => <tbody className="divide-y divide-border/60 bg-card/60">{children}</tbody>,
+  tr: ({ children }) => <tr className="align-top">{children}</tr>,
+  th: ({ children }) => <th className="px-4 py-3 font-semibold text-white">{children}</th>,
+  td: ({ children }) => <td className="px-4 py-3 text-secondary-foreground">{children}</td>
 };
 
 const reservationMethods: ReservationMethod[] = [
@@ -242,7 +280,9 @@ export default async function GuidePage({ params }: GuidePageProps): Promise<Rea
         </header>
 
         <div className="mt-8 max-w-3xl">
-          <ReactMarkdown components={guideMarkdownComponents}>{introMarkdown}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={guideMarkdownComponents}>
+            {introMarkdown}
+          </ReactMarkdown>
         </div>
 
         <hr className="my-8 border-slate-800" />
@@ -390,7 +430,9 @@ export default async function GuidePage({ params }: GuidePageProps): Promise<Rea
           </>
         ) : hasClubDirectory && trailingMarkdown.trim() ? (
           <div className="mt-10 max-w-3xl">
-            <ReactMarkdown components={guideMarkdownComponents}>{trailingMarkdown}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={guideMarkdownComponents}>
+              {trailingMarkdown}
+            </ReactMarkdown>
           </div>
         ) : null}
 

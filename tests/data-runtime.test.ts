@@ -22,5 +22,6 @@ describe("runtime data loading", () => {
     const guides = await getAllGuides();
     expect(guides.length).toBeGreaterThan(0);
     expect(guides.some((guide) => guide.slug === "donde-jugar-padel-en-bucaramanga")).toBe(true);
+    expect(guides.some((guide) => guide.slug === "tipos-de-palas-de-padel")).toBe(true);
   });
 });

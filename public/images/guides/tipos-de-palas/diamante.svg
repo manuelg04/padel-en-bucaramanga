@@ -1,0 +1,11 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#0B1220"/>
+  <path d="M600 168L840 396L600 644L360 396L600 168Z" fill="#1C2536" stroke="#F97316" stroke-width="28"/>
+  <path d="M600 260L730 396L600 532L470 396L600 260Z" fill="#101827" stroke="#334155" stroke-width="12" stroke-dasharray="10 16"/>
+  <rect x="554" y="590" width="92" height="150" rx="40" fill="#243041" stroke="#F97316" stroke-width="16"/>
+  <rect x="564" y="706" width="72" height="106" rx="30" fill="#F97316"/>
+  <path d="M456 396H744" stroke="#334155" stroke-width="10"/>
+  <path d="M600 252V540" stroke="#334155" stroke-width="10"/>
+  <text x="600" y="124" fill="#F8FAFC" font-size="56" font-family="Arial, sans-serif" text-anchor="middle" font-weight="700">Diamante</text>
+  <text x="600" y="816" fill="#A3B3C9" font-size="34" font-family="Arial, sans-serif" text-anchor="middle">Ataque · Peso alto en la cabeza</text>
+</svg>

@@ -12,6 +12,7 @@ import clasesGuide from "@/data/guides/clases-de-padel-en-bucaramanga.json";
 import cuantoCuestaGuide from "@/data/guides/cuanto-cuesta-jugar-padel-en-bucaramanga.json";
 import dondeJugarGuide from "@/data/guides/donde-jugar-padel-en-bucaramanga.json";
 import reglasBasicasGuide from "@/data/guides/reglas-basicas-del-padel.json";
+import tiposDePalasGuide from "@/data/guides/tipos-de-palas-de-padel.json";
 
 type ClubFilters = {
   city?: string;
@@ -61,7 +62,8 @@ const bundledGuides = sortGuides(
     clasesGuide,
     cuantoCuestaGuide,
     dondeJugarGuide,
-    reglasBasicasGuide
+    reglasBasicasGuide,
+    tiposDePalasGuide
   ].map((input) => guideSchema.parse(input))
 );
 

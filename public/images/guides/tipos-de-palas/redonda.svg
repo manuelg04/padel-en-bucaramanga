@@ -1,0 +1,11 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#0B1220"/>
+  <circle cx="600" cy="420" r="220" fill="#1C2536" stroke="#9EDB4D" stroke-width="28"/>
+  <circle cx="600" cy="420" r="120" fill="#101827" stroke="#334155" stroke-width="12" stroke-dasharray="10 16"/>
+  <rect x="554" y="590" width="92" height="150" rx="40" fill="#243041" stroke="#9EDB4D" stroke-width="16"/>
+  <rect x="564" y="706" width="72" height="106" rx="30" fill="#9EDB4D"/>
+  <path d="M416 420H784" stroke="#334155" stroke-width="10"/>
+  <path d="M600 236V604" stroke="#334155" stroke-width="10"/>
+  <text x="600" y="124" fill="#F8FAFC" font-size="56" font-family="Arial, sans-serif" text-anchor="middle" font-weight="700">Redonda</text>
+  <text x="600" y="816" fill="#A3B3C9" font-size="34" font-family="Arial, sans-serif" text-anchor="middle">Control · Sweet spot amplio y centrado</text>
+</svg>
